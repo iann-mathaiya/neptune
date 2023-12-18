@@ -6,11 +6,16 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "generate": "drizzle-kit generate:pg --config=drizzle.config.ts",
+    "drop": "drizzle-kit drop --config=drizzle.config.ts",
+    "db:push": "drizzle-kit push:pg --config=drizzle.config.ts",
+    "studio": "drizzle-kit studio --config=drizzle.config.ts"
   },
   "dependencies": {
     "@lucia-auth/adapter-postgresql": "^2.0.2",
     "@vercel/postgres": "^0.5.1",
+    "dotenv": "^16.3.1",
     "drizzle-orm": "^0.29.1",
     "lucia": "^2.7.5",
     "next": "14.0.4",
@@ -22,6 +27,7 @@
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "autoprefixer": "^10.0.1",
+    "drizzle-kit": "^0.20.7",
     "postcss": "^8",
     "tailwindcss": "^3.3.0",
     "typescript": "^5"
