@@ -8,6 +8,20 @@
       "when": 1702901656208,
       "tag": "0000_purple_strong_guy",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1702904760070,
+      "tag": "0001_slippery_colossus",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1702905016548,
+      "tag": "0002_yielding_skaar",
+      "breakpoints": true
     }
   ]
 }
