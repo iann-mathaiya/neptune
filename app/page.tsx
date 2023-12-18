@@ -1,10 +1,18 @@
 import Link from "next/link"
+import { auth } from "@/auth/lucia"
 import Form from "@/components/form"
+import * as context from "next/headers"
+import { redirect } from "next/navigation"
+
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Button } from "@/components/ui/button"
 
-export default function Home() {
+export default async function Home() {
+  const authRequest = auth.handleRequest("GET", context)
+  const session = await authRequest.validate()
+  if (session) redirect("/dashboard")
+
   return (
     <main className='flex min-h-screen flex-col items-center justify-between p-24'>
       <Form action='/api/signup'>
@@ -16,7 +24,7 @@ export default function Home() {
 
         <Button>Create Account</Button>
 
-        <Link href="/login">Sign in</Link>
+        <Link href='/login'>Sign in</Link>
       </Form>
     </main>
   )
