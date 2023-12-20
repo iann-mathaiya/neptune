@@ -19,7 +19,8 @@ export function ChangeProfilePicture() {
   const [selected, setSelected] = useState(personas[0].id)
 
   function handleSubmit(formData: FormData) {
-    console.log(formData)
+      const persona = Number(formData.get("persona"))
+      console.log(persona)
   }
 
   return (
@@ -37,9 +38,9 @@ export function ChangeProfilePicture() {
         </DialogHeader>
 
         <form action={handleSubmit}>
-          <div className='w-full px-4 py-16'>
+          <div className='w-full px-4 py-8 sm:py-12'>
             <div className='mx-auto w-full'>
-              <RadioGroup value={selected} onChange={setSelected}>
+              <RadioGroup name="persona" value={selected} onChange={setSelected}>
                 <RadioGroup.Label className='sr-only'>
                   Personas
                 </RadioGroup.Label>
