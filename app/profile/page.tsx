@@ -20,7 +20,7 @@ export default async function Profile() {
       </h1>
 
       <div className='flex items-center justify-between'>
-        <ProfileAvatar user={user} profile={profile[0].persona} size='size-20 lg:size-32' />
+        <ProfileAvatar user={user} profile={profile[0].persona} size='size-20 lg:size-20' />
         <ChangeProfilePicture profile={profile[0].persona} />
       </div>
     </main>

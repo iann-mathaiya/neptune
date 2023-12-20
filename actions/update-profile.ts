@@ -1,9 +1,10 @@
 "use server"
 
-import checkAuthStatus from "@/auth/check-auth-status"
 import { db } from "@/db/drizzle"
-import { users } from "@/db/schema"
 import { eq } from "drizzle-orm"
+import { users } from "@/db/schema"
+import { revalidatePath } from "next/cache"
+import checkAuthStatus from "@/auth/check-auth-status"
 
 export default async function updateProfile(formData: FormData) {
   try {
@@ -16,6 +17,8 @@ export default async function updateProfile(formData: FormData) {
       .set({ persona: persona })
       .where(eq(users.id, user.userId))
       .returning({ updatedPersona: users.persona })
+
+      revalidatePath('/profile')
 
     return updatedProfile
   } catch (error) {

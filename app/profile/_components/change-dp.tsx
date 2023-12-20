@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button"
 import { Avatar, AvatarImage } from "@/components/ui/avatar"
 import {
   Dialog,
+  DialogClose,
   DialogContent,
   DialogDescription,
   DialogFooter,
@@ -17,7 +18,6 @@ import { RadioGroup } from "@headlessui/react"
 import updateProfile from "@/actions/update-profile"
 
 export function ChangeProfilePicture({ profile }: { profile: number | null }) {
-
   async function handleSubmit(formData: FormData) {
     const result = await updateProfile(formData)
 
@@ -56,7 +56,7 @@ export function ChangeProfilePicture({ profile }: { profile: number | null }) {
                         <>
                           <div className='flex flex-col items-center text-sm max-w-sm gap-1'>
                             <Avatar
-                              className={`size-24 ${
+                              className={`size-[5rem] ${
                                 checked && "p-1 border-2 border-green-500"
                               }`}
                             >
@@ -84,7 +84,9 @@ export function ChangeProfilePicture({ profile }: { profile: number | null }) {
           </div>
 
           <DialogFooter>
-            <Button type='submit'>Save changes</Button>
+            <DialogClose asChild>
+              <Button type='submit'>Save changes</Button>
+            </DialogClose>
           </DialogFooter>
         </form>
       </DialogContent>
