@@ -16,11 +16,12 @@ import { personas } from "@/lib/utils"
 import { RadioGroup } from "@headlessui/react"
 import updateProfile from "@/actions/update-profile"
 
-export function ChangeProfilePicture() {
-  const [selected, setSelected] = useState(personas[0].id)
+export function ChangeProfilePicture({ profile }: { profile: number | null }) {
 
   async function handleSubmit(formData: FormData) {
     const result = await updateProfile(formData)
+
+    console.log(result)
   }
 
   return (
@@ -40,18 +41,22 @@ export function ChangeProfilePicture() {
         <form action={handleSubmit}>
           <div className='w-full px-4 py-8 sm:py-12'>
             <div className='mx-auto w-full'>
-              <RadioGroup name="persona" value={selected} onChange={setSelected}>
+              <RadioGroup name='persona' defaultValue={profile}>
                 <RadioGroup.Label className='sr-only'>
                   Personas
                 </RadioGroup.Label>
                 <div className='grid grid-cols-3 sm:grid-cols-4 gap-4 gap-y-8'>
                   {personas.map(({ id, src, name }) => (
-                    <RadioGroup.Option key={id} value={id} className='cursor-pointer'>
+                    <RadioGroup.Option
+                      key={id}
+                      value={id}
+                      className='cursor-pointer'
+                    >
                       {({ checked }) => (
                         <>
                           <div className='flex flex-col items-center text-sm max-w-sm gap-1'>
                             <Avatar
-                              className={`size-20 ${
+                              className={`size-24 ${
                                 checked && "p-1 border-2 border-green-500"
                               }`}
                             >

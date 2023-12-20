@@ -1,12 +1,13 @@
 import { type ClassValue, clsx } from "clsx"
 import { twMerge } from "tailwind-merge"
+import { Persona } from "./types"
  
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
 
 // prettier-ignore
-export const personas = [
+export const personas: Persona[] = [
   { id: 1, name: "Arthur Taylor", src: "/personas/Persona-Arthur-Taylor.png" },
   { id: 2, name: "Emma Wright", src: "/personas/Persona-Emma-Wright.png" },
   { id: 3, name: "James Brown", src: "/personas/Persona-James-Brown.png" },
