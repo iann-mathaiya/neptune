@@ -14,13 +14,13 @@ import {
 } from "@/components/ui/dialog"
 import { personas } from "@/lib/utils"
 import { RadioGroup } from "@headlessui/react"
+import updateProfile from "@/actions/update-profile"
 
 export function ChangeProfilePicture() {
   const [selected, setSelected] = useState(personas[0].id)
 
-  function handleSubmit(formData: FormData) {
-      const persona = Number(formData.get("persona"))
-      console.log(persona)
+  async function handleSubmit(formData: FormData) {
+    const result = await updateProfile(formData)
   }
 
   return (
