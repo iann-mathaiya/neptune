@@ -17,7 +17,7 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body
-        className={`${inter.className} relative isolate px-6 pt-14 lg:px-8`}
+        className={`${inter.className} relative isolate p-4 sm:p-8 sm:pt-16`}
       >
         <div
           className='absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80'

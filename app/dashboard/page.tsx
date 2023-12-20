@@ -1,8 +1,4 @@
-import { createContext } from "react"
 import checkAuthStatus from "@/auth/check-auth-status"
-
-import Form from "@/components/form"
-import { Button } from "@/components/ui/button"
 import ProfileAvatar from "@/components/profile-avatar"
 import ProfileDropdown from "@/components/profile-dropdown"
 
@@ -10,17 +6,16 @@ export default async function Dashboard() {
   const { user } = await checkAuthStatus()
 
   return (
-    <main className='min-h-screen max-w-lg mx-auto p-4 sm:p-8'>
-      <div className='flex justify-end'>
+    <main className='min-h-screen max-w-2xl mx-auto space-y-4 sm:space-y-8'>
+      <div className='flex items-center justify-between'>
+        <h1 className="text-2xl">
+        🤑
+        </h1>
         <ProfileDropdown>
-        <ProfileAvatar user={user} />
+          <ProfileAvatar user={user} />
         </ProfileDropdown>
       </div>
-      <p>User id: {user.userId}</p>
-      <p>Username: {user.username}</p>
-      <Form action='/api/logout'>
-        <Button type='submit'>Sign Out</Button>
-      </Form>
+      <div></div>
     </main>
   )
 }

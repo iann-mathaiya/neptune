@@ -13,12 +13,11 @@ import Form from "./form"
 import { Button } from "@/components/ui/button"
 import { ReactNode } from "react"
 
-export default function ProfileDropdown({children}: {children: ReactNode}) {
+export default function ProfileDropdown({ children }: { children: ReactNode }) {
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        {children}
-      </DropdownMenuTrigger>
+      <DropdownMenuTrigger asChild>{children}</DropdownMenuTrigger>
+      
       <DropdownMenuContent className='w-48'>
         <DropdownMenuLabel>My Account</DropdownMenuLabel>
         <DropdownMenuSeparator />
