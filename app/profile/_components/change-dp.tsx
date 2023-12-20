@@ -15,7 +15,7 @@ import {
 } from "@/components/ui/dialog"
 import { personas } from "@/lib/utils"
 import { RadioGroup } from "@headlessui/react"
-import updateProfile from "@/actions/update-profile"
+import updateProfile from "@/actions/profile.ts/update-profile"
 
 export function ChangeProfilePicture({ profile }: { profile: number | null }) {
   async function handleSubmit(formData: FormData) {

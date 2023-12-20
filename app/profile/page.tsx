@@ -1,17 +1,9 @@
-import { db } from "@/db/drizzle"
-import { eq } from "drizzle-orm"
-import { users } from "@/db/schema"
-import checkAuthStatus from "@/auth/check-auth-status"
-
 import ProfileAvatar from "@/components/profile-avatar"
+import readProfile from "@/actions/profile.ts/read-profile"
 import { ChangeProfilePicture } from "./_components/change-dp"
 
 export default async function Profile() {
-  const { user } = await checkAuthStatus()
-
-  const profile = await db.select().from(users).where(eq(users.id, user.userId))
-
-  console.log(profile)
+  const { user, profile } = await readProfile()
 
   return (
     <main className='min-h-screen max-w-2xl mx-auto space-y-4 sm:space-y-8'>
