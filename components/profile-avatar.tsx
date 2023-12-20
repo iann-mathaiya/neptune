@@ -5,7 +5,7 @@ export default function ProfileAvatar({ user, size }: { user: User, size?: strin
   const userAbbr = user.username.charAt(0).toUpperCase()
   return (
     <Avatar className={`${size} cursor-pointer`}>
-      <AvatarImage src='https://github.com/shadcn.png' alt='@shadcn' />
+      <AvatarImage src='https://github.com/shadcn.png' alt={`${user.username}'s profile picture`} />
       <AvatarFallback>{userAbbr}</AvatarFallback>
     </Avatar>
   )

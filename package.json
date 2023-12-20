@@ -13,6 +13,7 @@
     "studio": "drizzle-kit studio --config=drizzle.config.ts"
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.17",
     "@hookform/resolvers": "^3.3.2",
     "@lucia-auth/adapter-postgresql": "^2.0.2",
     "@radix-ui/react-avatar": "^1.0.4",

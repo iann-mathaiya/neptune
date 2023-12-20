@@ -1,6 +1,8 @@
 import checkAuthStatus from '@/auth/check-auth-status'
-import ProfileAvatar from '@/components/profile-avatar'
+
 import { Button } from '@/components/ui/button'
+import ProfileAvatar from '@/components/profile-avatar'
+import { ChangeProfilePicture } from './_components/change-dp'
 
 export default async function Profile() {
     const { user } = await checkAuthStatus()
@@ -10,7 +12,7 @@ export default async function Profile() {
         
         <div className='flex items-center justify-between'>
         <ProfileAvatar user={user} size='size-20 lg:size-32' />
-        <Button variant='secondary'>Change</Button>
+        <ChangeProfilePicture />
         </div>
     </main>
   )
