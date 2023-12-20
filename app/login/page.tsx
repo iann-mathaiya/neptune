@@ -24,7 +24,7 @@ export default async function Login() {
           </span>
         </h1>
 
-        <h2 className='mt-2 text-gray-600 sm:text-sm'>We gonna be drizzle fo shizzle</h2>
+        <h2 className='mt-2 text-gray-600 sm:text-sm'>We gonna drizzle fo shizzle</h2>
 
         <Form action='/api/login' className='mt-8 space-y-4'>
           <div>
@@ -37,7 +37,7 @@ export default async function Login() {
             <Input type='password' name='password' id='password' />
           </div>
 
-          <Button className='w-full'>Login</Button>
+          <Button type="submit" className='w-full'>Login</Button>
         </Form>
 
         <div className='mt-4'>

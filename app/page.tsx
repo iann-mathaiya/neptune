@@ -39,7 +39,7 @@ export default async function Home() {
             <Input type='password' name='password' id='password' />
           </div>
 
-          <Button className='w-full'>Create Account</Button>
+          <Button type="submit" className='w-full'>Create Account</Button>
         </Form>
 
         <div className='mt-4'>
