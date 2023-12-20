@@ -1,6 +1,4 @@
 import Link from "next/link"
-import UserAvatar from "./user-avatar"
-
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -13,12 +11,13 @@ import {
 } from "@/components/ui/dropdown-menu"
 import Form from "./form"
 import { Button } from "@/components/ui/button"
+import { ReactNode } from "react"
 
-export default function ProfileDropdown() {
+export default function ProfileDropdown({children}: {children: ReactNode}) {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <UserAvatar/>
+        {children}
       </DropdownMenuTrigger>
       <DropdownMenuContent className='w-48'>
         <DropdownMenuLabel>My Account</DropdownMenuLabel>
@@ -30,7 +29,7 @@ export default function ProfileDropdown() {
               <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
             </Link>
           </DropdownMenuItem>
-          <DropdownMenuItem disabled >
+          <DropdownMenuItem disabled>
             Settings
             <DropdownMenuShortcut>⌘S</DropdownMenuShortcut>
           </DropdownMenuItem>

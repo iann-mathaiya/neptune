@@ -1,5 +1,4 @@
 'use server'
-
 import { User } from "@/lib/types"
 import { auth } from "@/auth/lucia"
 import * as context from "next/headers"
