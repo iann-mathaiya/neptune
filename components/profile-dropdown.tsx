@@ -1,26 +1,24 @@
-import { Button } from "@/components/ui/button"
+import Link from "next/link"
+import UserAvatar from "./user-avatar"
+
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenuLabel,
-  DropdownMenuPortal,
   DropdownMenuSeparator,
   DropdownMenuShortcut,
-  DropdownMenuSub,
-  DropdownMenuSubContent,
-  DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import Link from "next/link"
 import Form from "./form"
+import { Button } from "@/components/ui/button"
 
-export default function DropdownMenuDemo() {
+export default function ProfileDropdown() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant='outline'>Open</Button>
+        <UserAvatar/>
       </DropdownMenuTrigger>
       <DropdownMenuContent className='w-48'>
         <DropdownMenuLabel>My Account</DropdownMenuLabel>
