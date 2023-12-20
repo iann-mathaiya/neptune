@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { auth } from "@/auth/lucia"
+import { auth } from "@/actions/auth/lucia"
 import Form from "@/components/form"
 import * as context from "next/headers"
 import { redirect } from "next/navigation"
@@ -24,7 +24,9 @@ export default async function Login() {
           </span>
         </h1>
 
-        <h2 className='mt-2 text-gray-600 sm:text-sm'>We gonna drizzle fo shizzle</h2>
+        <h2 className='mt-2 text-gray-600 sm:text-sm'>
+          We gonna drizzle fo shizzle
+        </h2>
 
         <Form action='/api/login' className='mt-8 space-y-4'>
           <div>
@@ -37,11 +39,16 @@ export default async function Login() {
             <Input type='password' name='password' id='password' />
           </div>
 
-          <Button type="submit" className='w-full'>Login</Button>
+          <Button type='submit' className='w-full'>
+            Login
+          </Button>
         </Form>
 
         <div className='mt-4'>
-          <Link href='/' className='px-4 py-2 w-full flex justify-center text-sm text-slate-600 hover:text-slate-800 hover:bg-slate-200 rounded-md'>
+          <Link
+            href='/'
+            className='px-4 py-2 w-full flex justify-center text-sm text-slate-600 hover:text-slate-800 hover:bg-slate-200 rounded-md'
+          >
             Create Account
           </Link>
         </div>

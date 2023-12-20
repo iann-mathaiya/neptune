@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { auth } from "@/auth/lucia"
+import { auth } from "@/actions/auth/lucia"
 import Form from "@/components/form"
 import * as context from "next/headers"
 import { redirect } from "next/navigation"
@@ -15,8 +15,6 @@ export default async function Home() {
 
   return (
     <main className='flex min-h-screen flex-1 flex-col justify-center'>
-
-
       <div className='sm:mx-auto sm:w-full sm:max-w-sm'>
         <h1 className='mt-5 font-display text-xl font-bold leading-[1.15] text-black sm:text-2xl sm:leading-[1.15]'>
           Create account with
@@ -39,7 +37,9 @@ export default async function Home() {
             <Input type='password' name='password' id='password' />
           </div>
 
-          <Button type="submit" className='w-full'>Create Account</Button>
+          <Button type='submit' className='w-full'>
+            Create Account
+          </Button>
         </Form>
 
         <div className='mt-4'>
@@ -51,7 +51,6 @@ export default async function Home() {
           </Link>
         </div>
       </div>
-      
     </main>
   )
 }

@@ -2,7 +2,7 @@
 import { eq } from "drizzle-orm"
 import { db } from "@/db/drizzle"
 import { users } from "@/db/schema"
-import checkAuthStatus from "@/auth/check-auth-status"
+import checkAuthStatus from "@/actions/auth/check-auth-status"
 
 export default async function readProfile() {
   try {
@@ -13,7 +13,6 @@ export default async function readProfile() {
       .where(eq(users.id, user.userId))
 
     return { user, profile }
-    
   } catch (error) {
     throw error
   }

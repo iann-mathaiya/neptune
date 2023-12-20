@@ -4,7 +4,7 @@ import { db } from "@/db/drizzle"
 import { eq } from "drizzle-orm"
 import { users } from "@/db/schema"
 import { revalidatePath } from "next/cache"
-import checkAuthStatus from "@/auth/check-auth-status"
+import checkAuthStatus from "@/actions/auth/check-auth-status"
 
 export default async function updateProfile(formData: FormData) {
   try {
@@ -18,7 +18,7 @@ export default async function updateProfile(formData: FormData) {
       .where(eq(users.id, user.userId))
       .returning({ updatedPersona: users.persona })
 
-      revalidatePath('/profile')
+    revalidatePath("/profile")
 
     return updatedProfile
   } catch (error) {
