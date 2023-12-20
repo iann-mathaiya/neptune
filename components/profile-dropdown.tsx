@@ -27,12 +27,12 @@ export default function DropdownMenuDemo() {
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
           <DropdownMenuItem>
-            <Link href='/profile' className="w-full flex justify-between">
+            <Link href='/profile' className='w-full flex justify-between'>
               Profile
               <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
             </Link>
           </DropdownMenuItem>
-          <DropdownMenuItem disabled>
+          <DropdownMenuItem disabled >
             Settings
             <DropdownMenuShortcut>⌘S</DropdownMenuShortcut>
           </DropdownMenuItem>
@@ -40,8 +40,8 @@ export default function DropdownMenuDemo() {
 
         <DropdownMenuSeparator />
 
-        <Form action='/api/logout' >
-          <Button type='submit' variant='ghost' className="w-full px-2 text-sm">
+        <Form action='/api/logout'>
+          <Button type='submit' variant='ghost' className='w-full px-2 text-sm'>
             <span>Log Out</span>
             <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
           </Button>
