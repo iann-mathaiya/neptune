@@ -17,11 +17,9 @@ import { personas } from "@/lib/utils"
 import { RadioGroup } from "@headlessui/react"
 import updateProfile from "@/actions/profile.ts/update-profile"
 
-export function ChangeProfilePicture({ profile }: { profile: number | null }) {
+export function ChangeProfilePicture({ persona }: { persona: number | null }) {
   async function handleSubmit(formData: FormData) {
     const result = await updateProfile(formData)
-
-    console.log(result)
   }
 
   return (
@@ -41,7 +39,7 @@ export function ChangeProfilePicture({ profile }: { profile: number | null }) {
         <form action={handleSubmit}>
           <div className='w-full px-4 py-8 sm:py-12'>
             <div className='mx-auto w-full'>
-              <RadioGroup name='persona' defaultValue={profile}>
+              <RadioGroup name='persona' defaultValue={persona}>
                 <RadioGroup.Label className='sr-only'>
                   Personas
                 </RadioGroup.Label>
