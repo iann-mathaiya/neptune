@@ -44,13 +44,13 @@ export default function UpdateUser({ email }: Pick<User, "email">) {
                 <button
                   type='button'
                   onClick={() => setIsEditable(false)}
-                  className='p-1.5 bg-transparent text-slate-800 hover:text-red-600 hover:bg-red-100 rounded-md'
+                  className='p-1.5 bg-transparent text-slate-800 hover:text-red-600 hover:bg-red-50 rounded-md'
                 >
                   <RiCloseLine size={20} aria-hidden />
                 </button>
                 <button
                   type='submit'
-                  className='p-1.5 bg-transparent text-slate-800 hover:text-green-500 hover:bg-green-100 rounded-md'
+                  className='p-1.5 bg-transparent text-slate-800 hover:text-green-500 hover:bg-green-50 rounded-md'
                 >
                   <RiCheckLine size={20} aria-hidden />
                 </button>
