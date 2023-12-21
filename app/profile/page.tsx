@@ -30,7 +30,7 @@ export default async function Profile() {
             size='size-20 lg:size-20'
           />
 
-          <div className='space-y-2'>
+          <div className='space-y-1'>
             <h2 className="px-3">
               {user.username.charAt(0).toUpperCase() + user.username.slice(1)}
             </h2>
