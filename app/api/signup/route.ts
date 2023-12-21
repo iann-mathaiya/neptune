@@ -6,6 +6,7 @@ import type { NextRequest } from "next/server"
 
 export const POST = async (request: NextRequest) => {
   const formData = await request.formData()
+  const email = formData.get("email")
   const username = formData.get("username")
   const password = formData.get("password")
   // basic check
@@ -14,6 +15,16 @@ export const POST = async (request: NextRequest) => {
     username.length < 3 ||
     username.length > 31
   ) {
+    return NextResponse.json(
+      {
+        error: "Invalid username",
+      },
+      {
+        status: 400,
+      }
+    )
+  }
+  if (typeof email !== "string" || email.length < 3) {
     return NextResponse.json(
       {
         error: "Invalid username",
@@ -40,12 +51,14 @@ export const POST = async (request: NextRequest) => {
   try {
     const user = await auth.createUser({
       key: {
-        providerId: "username", // auth method
-        providerUserId: username.toLowerCase(), // unique id when using "username" auth method
+        providerId: "email", // auth method
+        providerUserId: email.toLowerCase(), // unique id when using "username" auth method
         password, // hashed by Lucia
       },
       attributes: {
+        email,
         username,
+        persona: 1,
       },
     })
     const session = await auth.createSession({

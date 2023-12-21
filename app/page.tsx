@@ -33,6 +33,11 @@ export default async function Home() {
           </div>
 
           <div>
+            <Label htmlFor='email'>Email</Label>
+            <Input name='email' id='email' type="email" />
+          </div>
+
+          <div>
             <Label htmlFor='password'>Password</Label>
             <Input type='password' name='password' id='password' />
           </div>

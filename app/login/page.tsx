@@ -30,8 +30,8 @@ export default async function Login() {
 
         <Form action='/api/login' className='mt-8 space-y-4'>
           <div>
-            <Label htmlFor='username'>Username</Label>
-            <Input name='username' id='username' />
+            <Label htmlFor='email'>Email</Label>
+            <Input name='email' id='email' type="email" />
           </div>
 
           <div>
