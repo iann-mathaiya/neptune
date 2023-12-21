@@ -31,10 +31,9 @@ export default async function Profile() {
           />
 
           <div className='space-y-2'>
-            <h2>
+            <h2 className="px-3">
               {user.username.charAt(0).toUpperCase() + user.username.slice(1)}
             </h2>
-            <h3>{user.email}</h3>
             <UpdateUser email={user.email} />
           </div>
         </div>
