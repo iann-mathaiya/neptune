@@ -1,8 +1,9 @@
+import Link from "next/link"
+import UpdateUser from "./_components/update-user"
+import { ArrowLeftIcon } from "@radix-ui/react-icons"
 import ProfileAvatar from "@/components/profile-avatar"
 import readProfile from "@/actions/profile.ts/read-profile"
 import { ChangeProfilePicture } from "./_components/change-dp"
-import Link from "next/link"
-import { ArrowLeftIcon } from "@radix-ui/react-icons"
 
 export default async function Profile() {
   const { user } = await readProfile()
@@ -22,17 +23,19 @@ export default async function Profile() {
       </div>
 
       <div className='px-4 sm:px-6 flex items-center justify-between'>
-        <div className="flex items-center gap-2">
+        <div className='flex items-center gap-2'>
           <ProfileAvatar
             user={user}
             profile={user.persona}
             size='size-20 lg:size-20'
           />
 
-          <div>
-            <h2>{user.username}</h2>
+          <div className='space-y-2'>
+            <h2>
+              {user.username.charAt(0).toUpperCase() + user.username.slice(1)}
+            </h2>
             <h3>{user.email}</h3>
-            <h4>{user.persona}</h4>
+            <UpdateUser email={user.email} />
           </div>
         </div>
         <ChangeProfilePicture persona={user.persona} />

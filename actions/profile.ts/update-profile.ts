@@ -8,17 +8,26 @@ import checkAuthStatus from "@/actions/auth/check-auth-status"
 
 export default async function updateProfile(formData: FormData) {
   try {
-    const persona = Number(formData.get("persona"))
-
     const { user } = await checkAuthStatus()
 
-    const updatedProfile: { updatedPersona: number | null }[] = await db
+    const email = String(formData.get("email"))
+    const persona = Number(formData.get("persona"))
+
+    const updatedProfile: {
+      updatedPersona: number | null
+      updatedEmail: string | null
+    }[] = await db
       .update(users)
-      .set({ persona: persona })
+      .set({
+        email: email !== 'null' ? email : user.email,
+        persona: persona !== 0 ? persona : user.persona,
+      })
       .where(eq(users.id, user.userId))
-      .returning({ updatedPersona: users.persona })
+      .returning({ updatedPersona: users.persona, updatedEmail: users.email })
 
     revalidatePath("/profile")
+
+    console.log(updatedProfile)
 
     return updatedProfile
   } catch (error) {
