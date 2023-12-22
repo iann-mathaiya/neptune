@@ -7,6 +7,7 @@ import checkAuthStatus from "@/actions/auth/check-auth-status"
 export default async function readProfile() {
   try {
     const { user } = await checkAuthStatus()
+
     const profile = await db
       .select()
       .from(users)

@@ -1,4 +1,4 @@
-import { User } from "@/db/schema"
+import { User } from "@/lib/types"
 import { personas } from "@/lib/utils"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 

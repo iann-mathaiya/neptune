@@ -1,5 +1,6 @@
 "use server"
-import { User } from "@/db/schema"
+
+import { User } from "@/lib/types"
 import * as context from "next/headers"
 import { redirect } from "next/navigation"
 import { auth } from "@/actions/auth/lucia"
