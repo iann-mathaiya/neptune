@@ -1,8 +1,8 @@
 export type User = {
   userId: string
   email:  string
-  persona: number
   username: string
+  persona: number | null
 }
 
 export type Persona = {

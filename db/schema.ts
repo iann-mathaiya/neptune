@@ -3,8 +3,8 @@ import { pgTable, bigint, varchar, integer } from "drizzle-orm/pg-core"
 export const users = pgTable("auth_user", {
   id: varchar("id", { length: 255 }).primaryKey(),
   persona: integer("persona"),
-  username: varchar("username", { length: 255 }),
-  email: varchar("email", { length: 255 }).notNull(),
+  email: varchar("email", { length: 255 }).unique().notNull(),
+  username: varchar("username", { length: 255 }).unique().notNull(),
 })
 
 export type User = typeof users.$inferSelect;

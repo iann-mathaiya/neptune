@@ -58,7 +58,7 @@ export const POST = async (request: NextRequest) => {
       attributes: {
         email,
         username,
-        persona: 1,
+        persona: null,
       },
     })
     const session = await auth.createSession({
