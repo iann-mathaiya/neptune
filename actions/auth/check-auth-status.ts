@@ -1,8 +1,8 @@
 "use server"
-import { User } from "@/lib/types"
-import { auth } from "@/actions/auth/lucia"
+import { User } from "@/db/schema"
 import * as context from "next/headers"
 import { redirect } from "next/navigation"
+import { auth } from "@/actions/auth/lucia"
 
 export default async function checkAuthStatus() {
   const authRequest = auth.handleRequest("GET", context)

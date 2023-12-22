@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "generate": "drizzle-kit generate:pg --config=drizzle.config.ts",
+    "migrate": "drizzle-kit generate:pg --config=drizzle.config.ts",
     "drop": "drizzle-kit drop --config=drizzle.config.ts",
     "db:push": "drizzle-kit push:pg --config=drizzle.config.ts",
     "studio": "drizzle-kit studio --config=drizzle.config.ts"

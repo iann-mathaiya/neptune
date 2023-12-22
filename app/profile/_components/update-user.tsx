@@ -1,6 +1,6 @@
 "use client"
-import { useEffect, useRef, useState } from "react"
-import { User } from "@/lib/types"
+import { useState } from "react"
+import { User } from "@/db/schema"
 import updateProfile from "@/actions/profile.ts/update-profile"
 
 import { RiCheckLine, RiCloseLine, RiQuillPenLine } from "@remixicon/react"

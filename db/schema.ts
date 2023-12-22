@@ -7,7 +7,7 @@ export const users = pgTable("auth_user", {
   username: varchar("username", { length: 255 }).unique().notNull(),
 })
 
-export type User = typeof users.$inferSelect;
+export type User = typeof users.$inferSelect
 
 export const session = pgTable("user_session", {
   id: varchar("id", { length: 128 }).primaryKey(),
