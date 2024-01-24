@@ -14,6 +14,7 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form"
+import { FormEvent } from "react"
 
 export default function LoginForm() {
     const form = useForm<z.infer<typeof loginSchema>>({
@@ -24,8 +25,18 @@ export default function LoginForm() {
         },
       })
     
-      function onSubmit(values: z.infer<typeof loginSchema>) {
-        console.log(values)
+      async function onSubmit(values: z.infer<typeof loginSchema>) {
+        let formData = new FormData()
+        
+        formData.append('email', values.email)
+        formData.append('password', values.password)
+        console.log(formData)
+
+
+        // const response = await fetch('/api/login', {
+        //   method: 'POST',
+        //   body: formData,
+        // })
       }
 
   return (
