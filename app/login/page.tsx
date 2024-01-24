@@ -1,8 +1,8 @@
 import Link from "next/link"
-import { auth } from "@/actions/auth/lucia"
 import Form from "@/components/form"
 import * as context from "next/headers"
 import { redirect } from "next/navigation"
+import { auth } from "@/actions/auth/lucia"
 
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
