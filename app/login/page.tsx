@@ -1,12 +1,8 @@
 import Link from "next/link"
-import Form from "@/components/form"
 import * as context from "next/headers"
 import { redirect } from "next/navigation"
 import { auth } from "@/actions/auth/lucia"
-
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Button } from "@/components/ui/button"
+import LoginForm from "./_components/loginform"
 
 export default async function Login() {
   const authRequest = auth.handleRequest("GET", context)
@@ -28,21 +24,7 @@ export default async function Login() {
           We gonna drizzle fo shizzle
         </h2>
 
-        <Form action='/api/login' className='mt-8 space-y-4'>
-          <div>
-            <Label htmlFor='email'>Email</Label>
-            <Input name='email' id='email' type="email" />
-          </div>
-
-          <div>
-            <Label htmlFor='password'>Password</Label>
-            <Input type='password' name='password' id='password' />
-          </div>
-
-          <Button type='submit' className='w-full'>
-            Login
-          </Button>
-        </Form>
+        <LoginForm />
 
         <div className='mt-4'>
           <Link
