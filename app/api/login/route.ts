@@ -6,38 +6,16 @@ import { LuciaError } from "lucia"
 import type { NextRequest } from "next/server"
 
 export const POST = async (request: NextRequest) => {
-  const formData = await request.formData()
-  const email = formData.get("email")
-  const password = formData.get("password")
-  // basic check
-  if (
-    typeof email !== "string" ||
-    email.length < 1 ||
-    email.length > 31
-  ) {
-    return NextResponse.json(
-      {
-        error: "Invalid email",
-      },
-      {
-        status: 400,
-      }
-    )
-  }
-  if (
-    typeof password !== "string" ||
-    password.length < 1 ||
-    password.length > 255
-  ) {
-    return NextResponse.json(
-      {
-        error: "Invalid password",
-      },
-      {
-        status: 400,
-      }
-    )
-  }
+  // const formData = await request.formData()
+  // const email = formData.get("email")
+  // const password = formData.get("password")
+
+  const res = await request.json()
+  console.log(res)
+
+  const email = res.email
+  const password = res.password
+
   try {
     // find user by key
     // and validate password

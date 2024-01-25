@@ -14,62 +14,56 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form"
-import { FormEvent } from "react"
 
 export default function LoginForm() {
-    const form = useForm<z.infer<typeof loginSchema>>({
-        resolver: zodResolver(loginSchema),
-        defaultValues: {
-          email: "",
-          password: ""
-        },
-      })
-    
-      async function onSubmit(values: z.infer<typeof loginSchema>) {
-        let formData = new FormData()
-        
-        formData.append('email', values.email)
-        formData.append('password', values.password)
-        console.log(formData)
+  const form = useForm<z.infer<typeof loginSchema>>({
+    resolver: zodResolver(loginSchema),
+    defaultValues: {
+      email: "",
+      password: "",
+    },
+  })
 
-
-        // const response = await fetch('/api/login', {
-        //   method: 'POST',
-        //   body: formData,
-        // })
-      }
+  async function onSubmit(values: z.infer<typeof loginSchema>) {
+    const response = await fetch("/api/login", {
+      method: "POST",
+      body: JSON.stringify(values),
+    })
+  }
 
   return (
     <Form {...form}>
-    <form onSubmit={form.handleSubmit(onSubmit)} className='mt-8 space-y-4'>
-      <FormField
-        control={form.control}
-        name='email'
-        render={({ field }) => (
-          <FormItem>
-            <FormLabel>Email Address</FormLabel>
-            <FormControl>
-              <Input placeholder='Email Address' type="email" {...field} />
-            </FormControl>
-            <FormMessage />
-          </FormItem>
-        )}
-      />
-      <FormField
-        control={form.control}
-        name='password'
-        render={({ field }) => (
-          <FormItem>
-            <FormLabel>Password</FormLabel>
-            <FormControl>
-              <Input placeholder='Password' type="password" {...field} />
-            </FormControl>
-            <FormMessage />
-          </FormItem>
-        )}
-      />
-      <Button type='submit' className="w-full">Login</Button>
-    </form>
-  </Form>
+      <form onSubmit={form.handleSubmit(onSubmit)} className='mt-8 space-y-4'>
+        <FormField
+          control={form.control}
+          name='email'
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Email Address</FormLabel>
+              <FormControl>
+                <Input placeholder='Email Address' type='email' {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name='password'
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Password</FormLabel>
+              <FormControl>
+                <Input placeholder='Password' type='password' {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <Button type='submit' className='w-full'>
+          Login
+        </Button>
+      </form>
+    </Form>
   )
 }
