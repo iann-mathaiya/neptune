@@ -14,8 +14,12 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form"
+import { useRouter } from "next/navigation"
 
 export default function LoginForm() {
+
+  const router = useRouter()
+
   const form = useForm<z.infer<typeof loginSchema>>({
     resolver: zodResolver(loginSchema),
     defaultValues: {
@@ -29,6 +33,10 @@ export default function LoginForm() {
       method: "POST",
       body: JSON.stringify(values),
     })
+
+    if (response.status) {
+      location.reload()
+    }
   }
 
   return (

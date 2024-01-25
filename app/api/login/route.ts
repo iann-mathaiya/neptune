@@ -6,12 +6,8 @@ import { LuciaError } from "lucia"
 import type { NextRequest } from "next/server"
 
 export const POST = async (request: NextRequest) => {
-  // const formData = await request.formData()
-  // const email = formData.get("email")
-  // const password = formData.get("password")
 
   const res = await request.json()
-  console.log(res)
 
   const email = res.email
   const password = res.password
@@ -29,7 +25,7 @@ export const POST = async (request: NextRequest) => {
     return new Response(null, {
       status: 302,
       headers: {
-        Location: "/", // redirect to profile page
+        Location: "/dashboard", // redirect to profile page
       },
     })
   } catch (e) {
